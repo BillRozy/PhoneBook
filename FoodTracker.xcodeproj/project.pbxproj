@@ -16,6 +16,9 @@
 		65E0FD071CADC30000F72F85 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E0FD051CADC30000F72F85 /* LaunchScreen.xib */; };
 		65E0FD131CADC30000F72F85 /* FoodTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD121CADC30000F72F85 /* FoodTrackerTests.m */; };
 		65E0FD1E1CAE813000F72F85 /* RatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD1D1CAE813000F72F85 /* RatingControl.m */; };
+		65E0FD201CB04D3300F72F85 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD1F1CB04D3300F72F85 /* Meal.m */; };
+		65E0FD241CB0581200F72F85 /* MealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD231CB0581200F72F85 /* MealTableViewCell.m */; };
+		65E0FD271CB05F9700F72F85 /* MealTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD261CB05F9700F72F85 /* MealTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,12 @@
 		65E0FD121CADC30000F72F85 /* FoodTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodTrackerTests.m; sourceTree = "<group>"; };
 		65E0FD1C1CAE813000F72F85 /* RatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingControl.h; path = ../RatingControl.h; sourceTree = "<group>"; };
 		65E0FD1D1CAE813000F72F85 /* RatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingControl.m; path = ../RatingControl.m; sourceTree = "<group>"; };
+		65E0FD1F1CB04D3300F72F85 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
+		65E0FD211CB04E1000F72F85 /* Meal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
+		65E0FD221CB0581200F72F85 /* MealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewCell.h; sourceTree = "<group>"; };
+		65E0FD231CB0581200F72F85 /* MealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewCell.m; sourceTree = "<group>"; };
+		65E0FD251CB05F9700F72F85 /* MealTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewController.h; sourceTree = "<group>"; };
+		65E0FD261CB05F9700F72F85 /* MealTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +101,13 @@
 				65E0FCF81CADC30000F72F85 /* AppDelegate.m */,
 				65E0FCFD1CADC30000F72F85 /* ViewController.h */,
 				65E0FCFE1CADC30000F72F85 /* ViewController.m */,
+				65E0FD1F1CB04D3300F72F85 /* Meal.m */,
+				65E0FD211CB04E1000F72F85 /* Meal.h */,
 				65E0FD001CADC30000F72F85 /* Main.storyboard */,
+				65E0FD251CB05F9700F72F85 /* MealTableViewController.h */,
+				65E0FD261CB05F9700F72F85 /* MealTableViewController.m */,
+				65E0FD221CB0581200F72F85 /* MealTableViewCell.h */,
+				65E0FD231CB0581200F72F85 /* MealTableViewCell.m */,
 				65E0FD031CADC30000F72F85 /* Images.xcassets */,
 				65E0FD051CADC30000F72F85 /* LaunchScreen.xib */,
 				65E0FCFA1CADC30000F72F85 /* FoodTracker.xcdatamodeld */,
@@ -229,8 +244,11 @@
 			files = (
 				65E0FCF91CADC30000F72F85 /* AppDelegate.m in Sources */,
 				65E0FCF61CADC30000F72F85 /* main.m in Sources */,
+				65E0FD271CB05F9700F72F85 /* MealTableViewController.m in Sources */,
 				65E0FCFF1CADC30000F72F85 /* ViewController.m in Sources */,
+				65E0FD241CB0581200F72F85 /* MealTableViewCell.m in Sources */,
 				65E0FCFC1CADC30000F72F85 /* FoodTracker.xcdatamodeld in Sources */,
+				65E0FD201CB04D3300F72F85 /* Meal.m in Sources */,
 				65E0FD1E1CAE813000F72F85 /* RatingControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

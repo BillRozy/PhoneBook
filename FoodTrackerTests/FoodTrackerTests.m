@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "Meal.h"
 
 @interface FoodTrackerTests : XCTestCase
 
@@ -15,26 +16,23 @@
 
 @implementation FoodTrackerTests
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
+// MARK: FoodTracker Tests
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
+// Testing of meal initializer
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+-(void)testMealInitialization{
+    //Success case
+    Meal* potentialItem = [[Meal alloc] initWithName:@"Newest meal" Image:nil AndRating:5];
+    XCTAssertNotNil(potentialItem);
+    
+    //Failure case
+    
+    Meal* noName = [[Meal alloc] initWithName:@"" Image:nil AndRating:0];
+    XCTAssertNil(noName, "Empty name is invalid");
+    
+    Meal* badRating = [[Meal alloc] initWithName:@"Really bad rating" Image:nil AndRating:-1];
+    XCTAssertNil(badRating, "Negative ratings are invalid, be positive");
+    
 }
 
 @end

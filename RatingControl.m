@@ -65,7 +65,7 @@ NSUInteger rating = 0;
     CGSize size = {.width=buttonSize, .height = buttonSize};
     CGPoint point = {.x=0, .y = 0};
     CGRect buttonFrame = {.origin = point, .size = size};
-    int i = 1;
+    int i = 0;
     for (UIButton* button in self.buttons) {
         buttonFrame.origin.x = (i * (buttonSize+spacing));
         button.frame = buttonFrame;
