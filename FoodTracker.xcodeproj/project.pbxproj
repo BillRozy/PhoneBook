@@ -15,6 +15,7 @@
 		65E0FD041CADC30000F72F85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E0FD031CADC30000F72F85 /* Images.xcassets */; };
 		65E0FD071CADC30000F72F85 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E0FD051CADC30000F72F85 /* LaunchScreen.xib */; };
 		65E0FD131CADC30000F72F85 /* FoodTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD121CADC30000F72F85 /* FoodTrackerTests.m */; };
+		65E0FD1E1CAE813000F72F85 /* RatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD1D1CAE813000F72F85 /* RatingControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		65E0FD0C1CADC30000F72F85 /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E0FD111CADC30000F72F85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E0FD121CADC30000F72F85 /* FoodTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodTrackerTests.m; sourceTree = "<group>"; };
+		65E0FD1C1CAE813000F72F85 /* RatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingControl.h; path = ../RatingControl.h; sourceTree = "<group>"; };
+		65E0FD1D1CAE813000F72F85 /* RatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingControl.m; path = ../RatingControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 		65E0FCF21CADC30000F72F85 /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				65E0FD1C1CAE813000F72F85 /* RatingControl.h */,
+				65E0FD1D1CAE813000F72F85 /* RatingControl.m */,
 				65E0FCF71CADC30000F72F85 /* AppDelegate.h */,
 				65E0FCF81CADC30000F72F85 /* AppDelegate.m */,
 				65E0FCFD1CADC30000F72F85 /* ViewController.h */,
@@ -226,6 +231,7 @@
 				65E0FCF61CADC30000F72F85 /* main.m in Sources */,
 				65E0FCFF1CADC30000F72F85 /* ViewController.m in Sources */,
 				65E0FCFC1CADC30000F72F85 /* FoodTracker.xcdatamodeld in Sources */,
+				65E0FD1E1CAE813000F72F85 /* RatingControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +426,7 @@
 				65E0FD181CADC30000F72F85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65E0FD191CADC30000F72F85 /* Build configuration list for PBXNativeTarget "FoodTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +435,7 @@
 				65E0FD1B1CADC30000F72F85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
