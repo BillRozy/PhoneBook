@@ -19,10 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     [self loadSampleMeals];
-    NSLog(@"Array: %@", self.meals);
-}
+    
+  }
 
 -(void)loadSampleMeals{
     UIImage* photo1 = [UIImage imageNamed:@"Dish1"];
@@ -79,36 +80,43 @@
     MealViewController* sourceViewController = sender.sourceViewController;
     Meal* meal = sourceViewController.meal;
     if (sourceViewController != nil && meal != nil)
-         {
+    { NSIndexPath* selectedIndexPath = self.tableView.indexPathForSelectedRow;
+             if (selectedIndexPath) {
+                 [self.meals replaceObjectAtIndex:selectedIndexPath.row withObject:meal];
+                 NSArray* selectedArray = [NSArray arrayWithObject:selectedIndexPath];
+                 [self.tableView reloadRowsAtIndexPaths:selectedArray withRowAnimation:UITableViewRowAnimationNone];
+                 
+             }
+             else{
              NSIndexPath* newIndexPath = [NSIndexPath indexPathForRow:self.meals.count inSection:0];
              NSArray* pathArray = [NSArray arrayWithObject:newIndexPath];
              [self.meals addObject:meal];
              [self.tableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationBottom];
-             
+             }
          }
     
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.meals removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -124,14 +132,29 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+ //In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier  isEqual: @"ShowDetail"]) {
+        MealViewController* mealDetailViewController = segue.destinationViewController;
+        MealTableViewCell* selectedMealCell = sender;
+        if (selectedMealCell){
+            NSIndexPath* indexPath = [self.tableView indexPathForCell:selectedMealCell];
+            Meal* selectedMeal = self.meals[indexPath.row];
+            mealDetailViewController.meal = selectedMeal;
+                                      
+        }
+        
+    }
+    else if ([segue.identifier  isEqual: @"AddItem"]){
+        
+        NSLog(@"Add new Item");
+    }
 }
-*/
+
 
 @end

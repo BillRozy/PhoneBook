@@ -23,6 +23,15 @@
     [super viewDidLoad];
     //handle textfield's user input through delegate callback
     self.nameTextField.delegate = self;
+    
+    
+    if (self.meal != nil){
+        self.navigationItem.title = self.meal.name;
+        self.nameTextField.text = self.meal.name;
+        self.photoImageView.image = self.meal.photo;
+        self.ratingControl.rating = self.meal.rating;
+    }
+    
     [self checkValidMealName];
 }
 
@@ -65,7 +74,16 @@
 // MARK: navigation
 
 - (IBAction)cancel:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    id presented = self.presentingViewController;
+    id presentedClass = [presented class];
+    if ([presentedClass isEqualToString:@"UINavigationController"]){
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:true];
+    }
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
