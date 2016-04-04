@@ -6,9 +6,9 @@
 //  Copyright (c) 2016 fd. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MealViewController.h"
 
-@interface ViewController ()
+@interface MealViewController ()
 
 
 
@@ -16,20 +16,32 @@
 
 @end
 
-@implementation ViewController
+@implementation MealViewController
 
 - (void)viewDidLoad {
 
     [super viewDidLoad];
     //handle textfield's user input through delegate callback
     self.nameTextField.delegate = self;
+    [self checkValidMealName];
 }
 
 // MARK: UITextFieldDelegate
 
--(void)textFieldDidEndEditing:(UITextField *)textField
+-(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    self.mealNameLabel.text = textField.text;
+    self.saveButton.enabled = false;
+}
+
+-(void)checkValidMealName{
+    NSString* text = self.nameTextField.text;
+    self.saveButton.enabled = !([text isEqual:@""] || [text isEqual:nil]);
+    
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [self checkValidMealName];
+    self.navigationItem.title = textField.text;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -48,6 +60,22 @@
     self.photoImageView.image = selectedImage;
     [picker dismissViewControllerAnimated:true completion:nil];
     
+}
+
+// MARK: navigation
+
+- (IBAction)cancel:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([self.saveButton isEqual:sender]) {
+        NSString* name = self.nameTextField.text;
+        UIImage* photo = self.photoImageView.image;
+        NSInteger rating = self.ratingControl.rating;
+        self.meal = [[Meal alloc] initWithName:name Image:photo AndRating:rating];
+        
+    }
 }
 
 // MARK: actions

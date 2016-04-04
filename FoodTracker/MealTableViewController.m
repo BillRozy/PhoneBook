@@ -9,6 +9,7 @@
 #import "MealTableViewController.h"
 #import "Meal.h"
 #import "MealTableViewCell.h"
+#import "MealViewController.h"
 
 @interface MealTableViewController ()
 
@@ -70,6 +71,22 @@
     cell.ratingControl.rating = meal.rating;
     
     return cell;
+}
+
+// MARK: navigation
+
+-(void)unwindToMealList:(UIStoryboardSegue *)sender{
+    MealViewController* sourceViewController = sender.sourceViewController;
+    Meal* meal = sourceViewController.meal;
+    if (sourceViewController != nil && meal != nil)
+         {
+             NSIndexPath* newIndexPath = [NSIndexPath indexPathForRow:self.meals.count inSection:0];
+             NSArray* pathArray = [NSArray arrayWithObject:newIndexPath];
+             [self.meals addObject:meal];
+             [self.tableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationBottom];
+             
+         }
+    
 }
 
 

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AB0-K4-mS1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1B1-E0-zln">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New Meal-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -19,54 +19,47 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="336" placeholderIntrinsicHeight="590" translatesAutoresizingMaskIntoConstraints="NO" id="dbk-Dw-PxF">
-                                <rect key="frame" x="16" y="80" width="343" height="500"/>
+                                <rect key="frame" x="16" y="84" width="343" height="500"/>
                                 <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="296" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter meal name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NP3-xh-65o">
+                                        <rect key="frame" x="30" y="68" width="296" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="a0G-zH-akx" customClass="RatingControl">
+                                        <rect key="frame" x="58" y="378" width="240" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="200" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="p7f-3g-LzN">
-                                        <rect key="frame" x="20" y="139" width="226" height="226"/>
+                                        <rect key="frame" x="58" y="137" width="226" height="226"/>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="226" id="dif-A8-tOJ"/>
+                                            <constraint firstAttribute="width" constant="226" id="e6N-F5-dV8"/>
                                             <constraint firstAttribute="width" secondItem="p7f-3g-LzN" secondAttribute="height" multiplier="1:1" id="qpP-6I-RxI"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Nim-PI-eDW" appends="YES" id="12z-On-m2N"/>
                                         </connections>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="296" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter meal name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NP3-xh-65o">
-                                        <rect key="frame" x="20" y="68" width="271" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vz-1g-eNt">
-                                        <rect key="frame" x="20" y="26" width="88" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="a0G-zH-akx" customClass="RatingControl">
-                                        <rect key="frame" x="20" y="385" width="240" height="44"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="NP3-xh-65o" secondAttribute="trailing" constant="52" id="433-i0-xdi"/>
-                                    <constraint firstItem="p7f-3g-LzN" firstAttribute="top" secondItem="NP3-xh-65o" secondAttribute="bottom" constant="41" id="4Jy-ET-2UH"/>
-                                    <constraint firstAttribute="trailing" secondItem="p7f-3g-LzN" secondAttribute="trailing" constant="97" id="9AZ-ju-Zo8"/>
+                                    <constraint firstAttribute="centerX" secondItem="NP3-xh-65o" secondAttribute="centerX" constant="-6.5" id="0fV-LP-yVL"/>
+                                    <constraint firstItem="p7f-3g-LzN" firstAttribute="top" secondItem="NP3-xh-65o" secondAttribute="bottom" constant="39" id="4Jy-ET-2UH"/>
                                     <constraint firstItem="p7f-3g-LzN" firstAttribute="centerY" secondItem="a0G-zH-akx" secondAttribute="centerY" id="DF9-5S-Cud"/>
                                     <constraint firstItem="p7f-3g-LzN" firstAttribute="leading" secondItem="a0G-zH-akx" secondAttribute="leading" id="DKh-Kj-4wb"/>
-                                    <constraint firstItem="6Vz-1g-eNt" firstAttribute="top" secondItem="dbk-Dw-PxF" secondAttribute="top" constant="26" id="DuD-s0-whE"/>
+                                    <constraint firstAttribute="bottom" secondItem="a0G-zH-akx" secondAttribute="bottom" constant="78" id="DQN-WB-xCA"/>
                                     <constraint firstItem="NP3-xh-65o" firstAttribute="leading" secondItem="dbk-Dw-PxF" secondAttribute="leading" id="EJ5-Ti-kX5"/>
-                                    <constraint firstItem="NP3-xh-65o" firstAttribute="leading" secondItem="6Vz-1g-eNt" secondAttribute="leading" id="XHA-N4-dvU"/>
-                                    <constraint firstItem="p7f-3g-LzN" firstAttribute="leading" secondItem="dbk-Dw-PxF" secondAttribute="leading" constant="20" id="cWm-Iu-naN"/>
                                     <constraint firstItem="a0G-zH-akx" firstAttribute="top" secondItem="p7f-3g-LzN" secondAttribute="bottom" constant="33" id="dm8-fN-G2C"/>
-                                    <constraint firstItem="NP3-xh-65o" firstAttribute="top" secondItem="6Vz-1g-eNt" secondAttribute="bottom" constant="21" id="ezd-az-l0n"/>
                                     <constraint firstAttribute="trailing" secondItem="NP3-xh-65o" secondAttribute="trailing" id="fwB-57-3tm"/>
+                                    <constraint firstAttribute="centerX" secondItem="a0G-zH-akx" secondAttribute="centerX" constant="-6.5" id="fwC-Qg-UI5"/>
                                     <constraint firstItem="p7f-3g-LzN" firstAttribute="centerY" secondItem="dbk-Dw-PxF" secondAttribute="centerY" id="hse-oY-PJ0"/>
-                                    <constraint firstItem="a0G-zH-akx" firstAttribute="leading" secondItem="NP3-xh-65o" secondAttribute="leading" id="l0E-HB-eDt"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a0G-zH-akx" secondAttribute="trailing" constant="83" id="qjO-Bv-Sx2"/>
+                                    <constraint firstItem="NP3-xh-65o" firstAttribute="top" secondItem="dbk-Dw-PxF" secondAttribute="top" constant="68" id="jhy-zP-azh"/>
+                                    <constraint firstAttribute="centerX" secondItem="p7f-3g-LzN" secondAttribute="centerX" constant="0.5" id="kaU-sN-PVH"/>
                                     <constraint firstItem="p7f-3g-LzN" firstAttribute="centerX" secondItem="NP3-xh-65o" secondAttribute="centerX" id="s7J-Xv-L6t"/>
                                     <constraint firstItem="a0G-zH-akx" firstAttribute="top" secondItem="p7f-3g-LzN" secondAttribute="bottom" constant="32" id="t7q-tT-Jrj"/>
-                                    <constraint firstItem="a0G-zH-akx" firstAttribute="top" secondItem="p7f-3g-LzN" secondAttribute="bottom" constant="20" id="txk-mR-J2D"/>
+                                    <constraint firstItem="a0G-zH-akx" firstAttribute="top" secondItem="p7f-3g-LzN" secondAttribute="bottom" constant="15" id="txk-mR-J2D"/>
                                     <constraint firstItem="p7f-3g-LzN" firstAttribute="leading" secondItem="dbk-Dw-PxF" secondAttribute="leading" id="wzO-QB-4hU"/>
                                 </constraints>
                                 <variation key="default">
@@ -87,14 +80,14 @@
                         <constraints>
                             <constraint firstItem="dbk-Dw-PxF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="1mu-ew-RPb"/>
                             <constraint firstItem="dbk-Dw-PxF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="EPM-tA-tLL"/>
-                            <constraint firstItem="dbk-Dw-PxF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="I6w-zK-Bf1"/>
+                            <constraint firstItem="dbk-Dw-PxF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="I6w-zK-Bf1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dbk-Dw-PxF" secondAttribute="trailing" id="ItF-c9-FlA"/>
                             <constraint firstItem="dbk-Dw-PxF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="aFm-sB-03o"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dbk-Dw-PxF" secondAttribute="bottom" constant="20" id="bx6-ag-czd"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dbk-Dw-PxF" secondAttribute="bottom" id="fRb-lW-8pY"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dbk-Dw-PxF" secondAttribute="bottom" id="owq-n1-LcO"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dbk-Dw-PxF" secondAttribute="bottom" constant="57" id="v88-OE-smR"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dbk-Dw-PxF" secondAttribute="bottom" constant="87" id="wjT-UE-Pwx"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dbk-Dw-PxF" secondAttribute="bottom" constant="83" id="wjT-UE-Pwx"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -107,24 +100,37 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="New Meal" id="Ixg-L2-jJU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9w5-MY-Jxp">
+                            <connections>
+                                <action selector="cancel:" destination="vXZ-lx-hvc" id="w4L-HF-1sX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="WVG-Ct-H2M">
+                            <connections>
+                                <segue destination="0Xj-Fb-7cK" kind="unwind" unwindAction="unwindToMealList:" id="rZt-Ni-U2V"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="mealNameLabel" destination="6Vz-1g-eNt" id="s1O-FS-eps"/>
                         <outlet property="nameTextField" destination="NP3-xh-65o" id="7Ui-Hc-4Jo"/>
                         <outlet property="photoImageView" destination="p7f-3g-LzN" id="rfp-3B-g6L"/>
+                        <outlet property="saveButton" destination="WVG-Ct-H2M" id="E4q-NR-llI"/>
                         <outlet property="selectImageGesture" destination="Nim-PI-eDW" id="1tp-LS-Qtk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <exit id="0Xj-Fb-7cK" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Nim-PI-eDW">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="vXZ-lx-hvc" id="EvW-eK-Li8"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="737.5" y="348.5"/>
+            <point key="canvasLocation" x="2136.5" y="348.5"/>
         </scene>
-        <!--Meal Table View Controller-->
+        <!--Your Meals-->
         <scene sceneID="cz0-sK-5N9">
             <objects>
                 <tableViewController id="AB0-K4-mS1" customClass="MealTableViewController" sceneMemberID="viewController">
@@ -165,11 +171,55 @@
                             <outlet property="delegate" destination="AB0-K4-mS1" id="RG2-Pu-IdZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Your Meals" id="wEx-sd-hgw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aw6-Lc-ffc">
+                            <connections>
+                                <segue destination="wcu-cR-LdQ" kind="presentation" identifier="AddItem" id="Xpk-iO-jMi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQX-W8-vMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.5" y="348.5"/>
+            <point key="canvasLocation" x="948.5" y="348.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="di6-Ch-VGT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1B1-E0-zln" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eYD-Px-0Xz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AB0-K4-mS1" kind="relationship" relationship="rootViewController" id="dP1-y6-xbo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oAg-1U-A42" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136" y="348"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bSt-79-Oo8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wcu-cR-LdQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KFf-mw-pKe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="xzi-1t-Kn3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JpV-BI-P3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1549.5" y="348.5"/>
         </scene>
     </scenes>
     <resources>
