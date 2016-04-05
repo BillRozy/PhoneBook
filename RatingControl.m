@@ -14,7 +14,7 @@
 
 const int spacing = 5;
 const int starCount = 5;
-NSUInteger rating = 0;
+
 //-(void)didChangeValueForKey:(NSString *)@"rating"
 //{
 //}
@@ -29,6 +29,7 @@ NSUInteger rating = 0;
     self = [super initWithCoder:coder];
     if (self) {
        self.buttons = [[NSMutableArray alloc] initWithCapacity:starCount];
+        self.rating = 1;
         UIImage* filledStarImage = [UIImage imageNamed:@"fullStar"];
         UIImage* emptyStarImage = [UIImage imageNamed:@"emptyStar"];
         
@@ -46,7 +47,7 @@ NSUInteger rating = 0;
         [self.buttons addObject:button];
         [self addSubview:button];
         }
-            NSLog(@"All array: %@", self.buttons);
+         
     }
     return self;
 
@@ -77,9 +78,8 @@ NSUInteger rating = 0;
 // MARK: Button Action
 
 -(void) ratingButtonTapped:(UIButton*)button
-{   NSMutableArray* result = [NSMutableArray new];
-    result = [self.buttons mutableCopy];
-    self.rating = [result indexOfObject:button] + 1;
+{
+    self.rating = [self.buttons indexOfObject:button] + 1;
     [self updateButtonSelectionStates];
     
 }

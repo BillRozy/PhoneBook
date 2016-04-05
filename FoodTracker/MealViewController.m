@@ -23,13 +23,13 @@
     [super viewDidLoad];
     //handle textfield's user input through delegate callback
     self.nameTextField.delegate = self;
-    
+    self.phoneNumberTextField.delegate = self;
     
     if (self.meal != nil){
         self.navigationItem.title = self.meal.name;
         self.nameTextField.text = self.meal.name;
         self.photoImageView.image = self.meal.photo;
-        self.ratingControl.rating = self.meal.rating;
+        self.phoneNumberTextField.text = self.meal.phoneNumber;
     }
     
     [self checkValidMealName];
@@ -50,7 +50,7 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     [self checkValidMealName];
-    self.navigationItem.title = textField.text;
+    self.navigationItem.title = self.nameTextField.text;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -90,8 +90,8 @@
     if ([self.saveButton isEqual:sender]) {
         NSString* name = self.nameTextField.text;
         UIImage* photo = self.photoImageView.image;
-        NSInteger rating = self.ratingControl.rating;
-        self.meal = [[Meal alloc] initWithName:name Image:photo AndRating:rating];
+        NSString* phoneNumber = self.phoneNumberTextField.text;
+         self.meal = [[Meal alloc] initWithName:name Image:photo andPhoneNumber:phoneNumber];
         
     }
 }

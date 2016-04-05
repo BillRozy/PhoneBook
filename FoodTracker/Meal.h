@@ -8,16 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Meal : NSObject
+@interface Meal : NSObject<NSCoding>
 
 // MARK: properties
 
 @property (strong) NSString* name;
-@property (weak) UIImage* photo;
-@property NSInteger rating;
+@property (strong) UIImage* photo;
+@property (strong) NSString* phoneNumber;
+
+
+// MARK: archiving paths
++(NSURL*)DocumentsDirectory;
++(NSURL*)ArchiveUrl;
 
 // MARK: actions
 
--(instancetype)initWithName:(NSString*)name Image:(UIImage*)photo AndRating:(NSInteger)rating;
+-(instancetype)initWithName:(NSString*)name Image:(UIImage*)photo andPhoneNumber:(NSString*)phoneNumber;
+
+
+
+
 
 @end

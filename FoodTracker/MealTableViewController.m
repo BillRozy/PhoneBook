@@ -21,19 +21,30 @@
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    [self loadSampleMeals];
+   NSArray* savedMeals = [self loadMeals];
+    NSMutableArray* resulter = [NSMutableArray arrayWithArray:savedMeals];
+    if(![savedMeals isEqualToArray:@[]])
+    {
+        
+        self.meals = resulter;
+   }
+    else
+    {
     
+    [self loadSampleMeals];
+    }
+    NSLog(@"WHAT INSIDE? %@ %@ %@",[self.meals.firstObject name],[self.meals.firstObject photo], [self.meals.firstObject phoneNumber]);
   }
 
 -(void)loadSampleMeals{
     UIImage* photo1 = [UIImage imageNamed:@"Dish1"];
-    Meal* meal1 = [[Meal alloc] initWithName:@"Steak with something" Image:photo1 AndRating:4];
+    Meal* meal1 = [[Meal alloc] initWithName:@"Steak with something" Image:photo1 andPhoneNumber:@"89087517220"];
     
     UIImage* photo2 = [UIImage imageNamed:@"Dish2"];
-    Meal* meal2 = [[Meal alloc] initWithName:@"Friies" Image:photo2 AndRating:5];
+    Meal* meal2 = [[Meal alloc] initWithName:@"Friies" Image:photo2 andPhoneNumber:@"89601825549"];
     
     UIImage* photo3 = [UIImage imageNamed:@"Dish3"];
-    Meal* meal3 = [[Meal alloc] initWithName:@"Fat and Dirty" Image:photo3 AndRating:3];
+    Meal* meal3 = [[Meal alloc] initWithName:@"Fat and Dirty" Image:photo3 andPhoneNumber:@"89307653651"];
     
     self.meals = [[NSMutableArray alloc] initWithArray:@[meal1, meal2, meal3]];
 }
@@ -69,8 +80,7 @@
     Meal* meal = [self.meals objectAtIndex:indexPath.row];
     cell.nameLabel.text = meal.name;
     cell.photoImageView.image = meal.photo;
-    cell.ratingControl.rating = meal.rating;
-    
+    cell.phoneNumberLabel.text = meal.phoneNumber;
     return cell;
 }
 
@@ -93,6 +103,8 @@
              [self.meals addObject:meal];
              [self.tableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationBottom];
              }
+        [self saveMeals];
+        NSLog(@" %@ %@", meal.name,meal.photo);
          }
     
 }
@@ -112,6 +124,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [self.meals removeObjectAtIndex:indexPath.row];
+        [self saveMeals];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -140,9 +153,9 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier  isEqual: @"ShowDetail"]) {
-        MealViewController* mealDetailViewController = segue.destinationViewController;
+        MealViewController* mealDetailViewController = [segue destinationViewController];
         MealTableViewCell* selectedMealCell = sender;
-        if (selectedMealCell){
+        if (selectedMealCell != NULL){
             NSIndexPath* indexPath = [self.tableView indexPathForCell:selectedMealCell];
             Meal* selectedMeal = self.meals[indexPath.row];
             mealDetailViewController.meal = selectedMeal;
@@ -155,6 +168,37 @@
         NSLog(@"Add new Item");
     }
 }
+
+
+// MARK: NSCoding
+
+-(void)saveMeals{
+    BOOL isSuccessfulSave = [NSKeyedArchiver archiveRootObject:self.meals toFile:[[Meal ArchiveUrl] path]];
+    if (!isSuccessfulSave) {
+        NSLog(@"Failed to save meals");
+    }
+    
+}
+
+-(NSArray *)loadMeals{
+    NSArray* meals = [NSKeyedUnarchiver unarchiveObjectWithFile:[[Meal ArchiveUrl] path]];
+    return meals;
+}
+
+- (IBAction)callContact:(UIButton*)sender {
+    MealTableViewCell* selectedMealCell = [[sender superview] superview];
+    NSLog(@"%@", selectedMealCell);
+    NSString* message = [NSString stringWithFormat:@"You are calling %@ \n %@", selectedMealCell.nameLabel.text,selectedMealCell.phoneNumberLabel.text];
+    UIAlertController* youCallingWindow = [UIAlertController alertControllerWithTitle:@"Calling" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    }];
+    UIAlertAction* saveAction = [UIAlertAction actionWithTitle:@"End Call" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    }];
+    [youCallingWindow addAction:cancelAction];
+    [youCallingWindow addAction:saveAction];
+    [self presentViewController:youCallingWindow animated:true completion:nil];
+}
+
 
 
 @end

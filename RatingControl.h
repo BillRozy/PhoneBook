@@ -12,7 +12,7 @@
 
 // MARK: Properties
 
-@property NSUInteger rating;
+@property (readwrite) NSInteger rating;
 @property (strong) NSMutableArray* buttons;
 
 // MARK: Actions

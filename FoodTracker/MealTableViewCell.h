@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RatingControl.h"
 
 @interface MealTableViewCell : UITableViewCell
 
 // MARK: properties
-@property (weak, nonatomic) IBOutlet RatingControl *ratingControl;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
+@property (weak, nonatomic) IBOutlet UIButton *callButton;
+
 
 
 @end

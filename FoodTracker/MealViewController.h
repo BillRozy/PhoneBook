@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RatingControl.h"
 #import "Meal.h"
+
 
 @interface MealViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 // MARK: properties
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *selectImageGesture;
-@property (weak, nonatomic) IBOutlet RatingControl *ratingControl;
 @property (strong) Meal* meal;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 

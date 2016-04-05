@@ -13,8 +13,21 @@
 // MARK: properties
 
 @property (readwrite) NSMutableArray* meals;
+@property UITableViewCell* callingCell;
 
 // MARK: navigation
 
 -(IBAction)unwindToMealList:(UIStoryboardSegue*)sender;
+
+//MARK: actions
+- (IBAction)callContact:(UIButton *)sender;
+
+
+
+// MARK: NSCoding
+
+-(void)saveMeals;
+-(NSArray*)loadMeals;
+
+
 @end

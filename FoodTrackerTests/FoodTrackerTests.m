@@ -22,15 +22,15 @@
 
 -(void)testMealInitialization{
     //Success case
-    Meal* potentialItem = [[Meal alloc] initWithName:@"Newest meal" Image:nil AndRating:5];
+    Meal* potentialItem = [[Meal alloc] initWithName:@"Newest meal" Image:nil andPhoneNumber:@"123213131" ];
     XCTAssertNotNil(potentialItem);
     
     //Failure case
     
-    Meal* noName = [[Meal alloc] initWithName:@"" Image:nil AndRating:0];
+    Meal* noName = [[Meal alloc] initWithName:@"" Image:nil andPhoneNumber:@"1231231231"];
     XCTAssertNil(noName, "Empty name is invalid");
     
-    Meal* badRating = [[Meal alloc] initWithName:@"Really bad rating" Image:nil AndRating:-1];
+    Meal* badRating = [[Meal alloc] initWithName:@"Really bad rating" Image:nil andPhoneNumber:@"213123131"];
     XCTAssertNil(badRating, "Negative ratings are invalid, be positive");
     
 }
