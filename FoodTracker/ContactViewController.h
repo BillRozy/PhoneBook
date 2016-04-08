@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Meal.h"
+#import "Contact.h"
 
 
-@interface MealViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ContactViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 // MARK: properties
 
@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *selectImageGesture;
-@property (strong) Meal* meal;
+@property (strong) Contact* contact;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 

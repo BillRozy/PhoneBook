@@ -6,9 +6,9 @@
 //  Copyright (c) 2016 fd. All rights reserved.
 //
 
-#import "MealViewController.h"
+#import "ContactViewController.h"
 
-@interface MealViewController ()
+@interface ContactViewController ()
 
 
 
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation MealViewController
+@implementation ContactViewController
 
 - (void)viewDidLoad {
 
@@ -25,11 +25,11 @@
     self.nameTextField.delegate = self;
     self.phoneNumberTextField.delegate = self;
     
-    if (self.meal != nil){
-        self.navigationItem.title = self.meal.name;
-        self.nameTextField.text = self.meal.name;
-        self.photoImageView.image = self.meal.photo;
-        self.phoneNumberTextField.text = self.meal.phoneNumber;
+    if (self.contact != nil){
+        self.navigationItem.title = self.contact.name;
+        self.nameTextField.text = self.contact.name;
+        self.photoImageView.image = self.contact.photo;
+        self.phoneNumberTextField.text = self.contact.phoneNumber;
     }
     
     [self checkValidMealName];
@@ -91,7 +91,7 @@
         NSString* name = self.nameTextField.text;
         UIImage* photo = self.photoImageView.image;
         NSString* phoneNumber = self.phoneNumberTextField.text;
-         self.meal = [[Meal alloc] initWithName:name Image:photo andPhoneNumber:phoneNumber];
+         self.contact = [[Contact alloc] initWithName:name Image:photo andPhoneNumber:phoneNumber];
         
     }
 }

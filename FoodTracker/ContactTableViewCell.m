@@ -6,9 +6,9 @@
 //  Copyright (c) 2016 fd. All rights reserved.
 //
 
-#import "MealTableViewCell.h"
+#import "ContactTableViewCell.h"
 
-@implementation MealTableViewCell
+@implementation ContactTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

@@ -6,47 +6,48 @@
 //  Copyright (c) 2016 fd. All rights reserved.
 //
 
-#import "MealTableViewController.h"
-#import "Meal.h"
-#import "MealTableViewCell.h"
-#import "MealViewController.h"
+#import "ContactTableViewController.h"
+#import "Contact.h"
+#import "ContactTableViewCell.h"
+#import "ContactViewController.h"
+#import "Recent.h"
 
-@interface MealTableViewController ()
+@interface ContactTableViewController ()
 
 @end
 
-@implementation MealTableViewController
+@implementation ContactTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-   NSArray* savedMeals = [self loadMeals];
-    NSMutableArray* resulter = [NSMutableArray arrayWithArray:savedMeals];
-    if(![savedMeals isEqualToArray:@[]])
+   NSArray* savedContacts = [self loadContacts];
+    NSMutableArray* resulter = [NSMutableArray arrayWithArray:savedContacts];
+    if(![savedContacts isEqualToArray:@[]])
     {
         
-        self.meals = resulter;
+        self.contacts = resulter;
    }
     else
     {
     
-    [self loadSampleMeals];
+    [self loadSampleContacts];
     }
-    NSLog(@"WHAT INSIDE? %@ %@ %@",[self.meals.firstObject name],[self.meals.firstObject photo], [self.meals.firstObject phoneNumber]);
+    NSLog(@"WHAT INSIDE? %@ %@ %@",[self.contacts.firstObject name],[self.contacts.firstObject photo], [self.contacts.firstObject phoneNumber]);
   }
 
--(void)loadSampleMeals{
+-(void)loadSampleContacts{
     UIImage* photo1 = [UIImage imageNamed:@"Dish1"];
-    Meal* meal1 = [[Meal alloc] initWithName:@"Steak with something" Image:photo1 andPhoneNumber:@"89087517220"];
+    Contact* contact1 = [[Contact alloc] initWithName:@"Steak with something" Image:photo1 andPhoneNumber:@"89087517220"];
     
     UIImage* photo2 = [UIImage imageNamed:@"Dish2"];
-    Meal* meal2 = [[Meal alloc] initWithName:@"Friies" Image:photo2 andPhoneNumber:@"89601825549"];
+    Contact* contact2 = [[Contact alloc] initWithName:@"Friies" Image:photo2 andPhoneNumber:@"89601825549"];
     
     UIImage* photo3 = [UIImage imageNamed:@"Dish3"];
-    Meal* meal3 = [[Meal alloc] initWithName:@"Fat and Dirty" Image:photo3 andPhoneNumber:@"89307653651"];
+    Contact* contact3 = [[Contact alloc] initWithName:@"Fat and Dirty" Image:photo3 andPhoneNumber:@"89307653651"];
     
-    self.meals = [[NSMutableArray alloc] initWithArray:@[meal1, meal2, meal3]];
+    self.contacts = [[NSMutableArray alloc] initWithArray:@[contact1, contact2, contact3]];
 }
 
 
@@ -66,7 +67,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return [self.meals count];
+    return [self.contacts count];
 }
 
 
@@ -74,37 +75,37 @@
     
     NSString* cellIdentifier = @"MealTableViewCell";
 
-    MealTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    ContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Meal* meal = [self.meals objectAtIndex:indexPath.row];
-    cell.nameLabel.text = meal.name;
-    cell.photoImageView.image = meal.photo;
-    cell.phoneNumberLabel.text = meal.phoneNumber;
+    Contact* contact = [self.contacts objectAtIndex:indexPath.row];
+    cell.nameLabel.text = contact.name;
+    cell.photoImageView.image = contact.photo;
+    cell.phoneNumberLabel.text = contact.phoneNumber;
     return cell;
 }
 
 // MARK: navigation
 
 -(void)unwindToMealList:(UIStoryboardSegue *)sender{
-    MealViewController* sourceViewController = sender.sourceViewController;
-    Meal* meal = sourceViewController.meal;
-    if (sourceViewController != nil && meal != nil)
+    ContactViewController* sourceViewController = sender.sourceViewController;
+    Contact* contact = sourceViewController.contact;
+    if (sourceViewController != nil && contact != nil)
     { NSIndexPath* selectedIndexPath = self.tableView.indexPathForSelectedRow;
              if (selectedIndexPath) {
-                 [self.meals replaceObjectAtIndex:selectedIndexPath.row withObject:meal];
+                 [self.contacts replaceObjectAtIndex:selectedIndexPath.row withObject:contact];
                  NSArray* selectedArray = [NSArray arrayWithObject:selectedIndexPath];
                  [self.tableView reloadRowsAtIndexPaths:selectedArray withRowAnimation:UITableViewRowAnimationNone];
                  
              }
              else{
-             NSIndexPath* newIndexPath = [NSIndexPath indexPathForRow:self.meals.count inSection:0];
+             NSIndexPath* newIndexPath = [NSIndexPath indexPathForRow:self.contacts.count inSection:0];
              NSArray* pathArray = [NSArray arrayWithObject:newIndexPath];
-             [self.meals addObject:meal];
+             [self.contacts addObject:contact];
              [self.tableView insertRowsAtIndexPaths:pathArray withRowAnimation:UITableViewRowAnimationBottom];
              }
-        [self saveMeals];
-        NSLog(@" %@ %@", meal.name,meal.photo);
+        [self saveContacts];
+        NSLog(@" %@ %@", contact.name,contact.photo);
          }
     
 }
@@ -123,8 +124,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [self.meals removeObjectAtIndex:indexPath.row];
-        [self saveMeals];
+        [self.contacts removeObjectAtIndex:indexPath.row];
+        [self saveContacts];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -153,12 +154,12 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier  isEqual: @"ShowDetail"]) {
-        MealViewController* mealDetailViewController = [segue destinationViewController];
-        MealTableViewCell* selectedMealCell = sender;
-        if (selectedMealCell != NULL){
-            NSIndexPath* indexPath = [self.tableView indexPathForCell:selectedMealCell];
-            Meal* selectedMeal = self.meals[indexPath.row];
-            mealDetailViewController.meal = selectedMeal;
+        ContactViewController* contactDetailViewController = [segue destinationViewController];
+        ContactTableViewCell* selectedContactCell = sender;
+        if (selectedContactCell != NULL){
+            NSIndexPath* indexPath = [self.tableView indexPathForCell:selectedContactCell];
+            Contact* selectedContact = self.contacts[indexPath.row];
+            contactDetailViewController.contact = selectedContact;
                                       
         }
         
@@ -172,27 +173,49 @@
 
 // MARK: NSCoding
 
--(void)saveMeals{
-    BOOL isSuccessfulSave = [NSKeyedArchiver archiveRootObject:self.meals toFile:[[Meal ArchiveUrl] path]];
+-(void)saveContacts{
+    BOOL isSuccessfulSave = [NSKeyedArchiver archiveRootObject:self.contacts toFile:[[Contact ArchiveUrl] path]];
     if (!isSuccessfulSave) {
         NSLog(@"Failed to save meals");
     }
     
 }
 
--(NSArray *)loadMeals{
-    NSArray* meals = [NSKeyedUnarchiver unarchiveObjectWithFile:[[Meal ArchiveUrl] path]];
-    return meals;
+-(NSArray *)loadContacts{
+    NSArray* contacts = [NSKeyedUnarchiver unarchiveObjectWithFile:[[Contact ArchiveUrl] path]];
+    return contacts;
 }
 
+
+-(void)saveRecentsFromAlert:(NSArray*)recents{
+    BOOL isSuccessfulSave = [NSKeyedArchiver archiveRootObject:recents toFile:[[Recent ArchiveUrl] path]];
+    if (!isSuccessfulSave) {
+        NSLog(@"Failed to save recentss");
+    }
+    
+}
+
+-(NSArray *)loadRecents{
+    NSArray* recents = [NSKeyedUnarchiver unarchiveObjectWithFile:[[Recent ArchiveUrl] path]];
+    return recents;
+}
+
+
 - (IBAction)callContact:(UIButton*)sender {
-    MealTableViewCell* selectedMealCell = [[sender superview] superview];
-    NSLog(@"%@", selectedMealCell);
-    NSString* message = [NSString stringWithFormat:@"You are calling %@ \n %@", selectedMealCell.nameLabel.text,selectedMealCell.phoneNumberLabel.text];
+    ContactTableViewCell* selectedContactCell = [[sender superview] superview];
+    NSLog(@"%@", selectedContactCell);
+    NSString* message = [NSString stringWithFormat:@"You are calling %@ \n %@", selectedContactCell.nameLabel.text,selectedContactCell.phoneNumberLabel.text];
     UIAlertController* youCallingWindow = [UIAlertController alertControllerWithTitle:@"Calling" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"was canceled");
     }];
     UIAlertAction* saveAction = [UIAlertAction actionWithTitle:@"End Call" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // save data into recents
+        NSMutableArray* recents =[NSMutableArray arrayWithArray:[self loadRecents]];
+        Recent* newRecent = [[Recent alloc] initWithName:selectedContactCell.nameLabel.text Image:selectedContactCell.photoImageView.image Date:[NSDate date] andPhoneNumber:selectedContactCell.phoneNumberLabel.text];
+        [recents insertObject:newRecent atIndex:0];
+        NSLog(@"Recents: %@", recents);
+        [self saveRecentsFromAlert:recents];
     }];
     [youCallingWindow addAction:cancelAction];
     [youCallingWindow addAction:saveAction];

@@ -7,11 +7,11 @@
 //
 
 
-#import "Meal.h"
+#import "Contact.h"
 
 
 
-@implementation Meal
+@implementation Contact
 
 // MARK: init
 
@@ -33,7 +33,7 @@
 }
 
 +(NSURL*)ArchiveUrl{
-    return [[Meal DocumentsDirectory] URLByAppendingPathComponent:@"meals"];
+    return [[Contact DocumentsDirectory] URLByAppendingPathComponent:@"contacts"];
 }
 
 

@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		654332451CB667CB001F5B24 /* RecentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654332441CB667CB001F5B24 /* RecentsTableViewController.m */; };
+		65BCAB5B1CB66DF5006AC0AB /* RecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BCAB5A1CB66DF5006AC0AB /* RecentTableViewCell.m */; };
+		65BCAB5E1CB67017006AC0AB /* Recent.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BCAB5D1CB67017006AC0AB /* Recent.m */; };
 		65E0FCF61CADC30000F72F85 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FCF51CADC30000F72F85 /* main.m */; };
 		65E0FCF91CADC30000F72F85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FCF81CADC30000F72F85 /* AppDelegate.m */; };
 		65E0FCFC1CADC30000F72F85 /* FoodTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FCFA1CADC30000F72F85 /* FoodTracker.xcdatamodeld */; };
-		65E0FCFF1CADC30000F72F85 /* MealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FCFE1CADC30000F72F85 /* MealViewController.m */; };
+		65E0FCFF1CADC30000F72F85 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FCFE1CADC30000F72F85 /* ContactViewController.m */; };
 		65E0FD021CADC30000F72F85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E0FD001CADC30000F72F85 /* Main.storyboard */; };
 		65E0FD041CADC30000F72F85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E0FD031CADC30000F72F85 /* Images.xcassets */; };
 		65E0FD071CADC30000F72F85 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E0FD051CADC30000F72F85 /* LaunchScreen.xib */; };
 		65E0FD131CADC30000F72F85 /* FoodTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD121CADC30000F72F85 /* FoodTrackerTests.m */; };
-		65E0FD1E1CAE813000F72F85 /* RatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD1D1CAE813000F72F85 /* RatingControl.m */; };
-		65E0FD201CB04D3300F72F85 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD1F1CB04D3300F72F85 /* Meal.m */; };
-		65E0FD241CB0581200F72F85 /* MealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD231CB0581200F72F85 /* MealTableViewCell.m */; };
-		65E0FD271CB05F9700F72F85 /* MealTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD261CB05F9700F72F85 /* MealTableViewController.m */; };
+		65E0FD201CB04D3300F72F85 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD1F1CB04D3300F72F85 /* Contact.m */; };
+		65E0FD241CB0581200F72F85 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD231CB0581200F72F85 /* ContactTableViewCell.m */; };
+		65E0FD271CB05F9700F72F85 /* ContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E0FD261CB05F9700F72F85 /* ContactTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,28 +34,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		654332431CB667CB001F5B24 /* RecentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentsTableViewController.h; sourceTree = "<group>"; };
+		654332441CB667CB001F5B24 /* RecentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentsTableViewController.m; sourceTree = "<group>"; };
+		65BCAB591CB66DF5006AC0AB /* RecentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentTableViewCell.h; sourceTree = "<group>"; };
+		65BCAB5A1CB66DF5006AC0AB /* RecentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTableViewCell.m; sourceTree = "<group>"; };
+		65BCAB5C1CB67017006AC0AB /* Recent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recent.h; sourceTree = "<group>"; };
+		65BCAB5D1CB67017006AC0AB /* Recent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recent.m; sourceTree = "<group>"; };
 		65E0FCF01CADC30000F72F85 /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E0FCF41CADC30000F72F85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E0FCF51CADC30000F72F85 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		65E0FCF71CADC30000F72F85 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		65E0FCF81CADC30000F72F85 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		65E0FCFB1CADC30000F72F85 /* FoodTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodTracker.xcdatamodel; sourceTree = "<group>"; };
-		65E0FCFD1CADC30000F72F85 /* MealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MealViewController.h; sourceTree = "<group>"; };
-		65E0FCFE1CADC30000F72F85 /* MealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MealViewController.m; sourceTree = "<group>"; };
+		65E0FCFD1CADC30000F72F85 /* ContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		65E0FCFE1CADC30000F72F85 /* ContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		65E0FD011CADC30000F72F85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65E0FD031CADC30000F72F85 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		65E0FD061CADC30000F72F85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		65E0FD0C1CADC30000F72F85 /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E0FD111CADC30000F72F85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E0FD121CADC30000F72F85 /* FoodTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodTrackerTests.m; sourceTree = "<group>"; };
-		65E0FD1C1CAE813000F72F85 /* RatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingControl.h; path = ../RatingControl.h; sourceTree = "<group>"; };
-		65E0FD1D1CAE813000F72F85 /* RatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingControl.m; path = ../RatingControl.m; sourceTree = "<group>"; };
-		65E0FD1F1CB04D3300F72F85 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
-		65E0FD211CB04E1000F72F85 /* Meal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
-		65E0FD221CB0581200F72F85 /* MealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewCell.h; sourceTree = "<group>"; };
-		65E0FD231CB0581200F72F85 /* MealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewCell.m; sourceTree = "<group>"; };
-		65E0FD251CB05F9700F72F85 /* MealTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewController.h; sourceTree = "<group>"; };
-		65E0FD261CB05F9700F72F85 /* MealTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewController.m; sourceTree = "<group>"; };
+		65E0FD1F1CB04D3300F72F85 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		65E0FD211CB04E1000F72F85 /* Contact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		65E0FD221CB0581200F72F85 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
+		65E0FD231CB0581200F72F85 /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
+		65E0FD251CB05F9700F72F85 /* ContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewController.h; sourceTree = "<group>"; };
+		65E0FD261CB05F9700F72F85 /* ContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,19 +101,23 @@
 		65E0FCF21CADC30000F72F85 /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
-				65E0FD1C1CAE813000F72F85 /* RatingControl.h */,
-				65E0FD1D1CAE813000F72F85 /* RatingControl.m */,
 				65E0FCF71CADC30000F72F85 /* AppDelegate.h */,
 				65E0FCF81CADC30000F72F85 /* AppDelegate.m */,
-				65E0FCFD1CADC30000F72F85 /* MealViewController.h */,
-				65E0FCFE1CADC30000F72F85 /* MealViewController.m */,
-				65E0FD1F1CB04D3300F72F85 /* Meal.m */,
-				65E0FD211CB04E1000F72F85 /* Meal.h */,
+				65E0FCFD1CADC30000F72F85 /* ContactViewController.h */,
+				65E0FCFE1CADC30000F72F85 /* ContactViewController.m */,
+				65E0FD1F1CB04D3300F72F85 /* Contact.m */,
+				65E0FD211CB04E1000F72F85 /* Contact.h */,
 				65E0FD001CADC30000F72F85 /* Main.storyboard */,
-				65E0FD251CB05F9700F72F85 /* MealTableViewController.h */,
-				65E0FD261CB05F9700F72F85 /* MealTableViewController.m */,
-				65E0FD221CB0581200F72F85 /* MealTableViewCell.h */,
-				65E0FD231CB0581200F72F85 /* MealTableViewCell.m */,
+				654332431CB667CB001F5B24 /* RecentsTableViewController.h */,
+				654332441CB667CB001F5B24 /* RecentsTableViewController.m */,
+				65BCAB5C1CB67017006AC0AB /* Recent.h */,
+				65BCAB5D1CB67017006AC0AB /* Recent.m */,
+				65E0FD251CB05F9700F72F85 /* ContactTableViewController.h */,
+				65E0FD261CB05F9700F72F85 /* ContactTableViewController.m */,
+				65E0FD221CB0581200F72F85 /* ContactTableViewCell.h */,
+				65BCAB591CB66DF5006AC0AB /* RecentTableViewCell.h */,
+				65BCAB5A1CB66DF5006AC0AB /* RecentTableViewCell.m */,
+				65E0FD231CB0581200F72F85 /* ContactTableViewCell.m */,
 				65E0FD031CADC30000F72F85 /* Images.xcassets */,
 				65E0FD051CADC30000F72F85 /* LaunchScreen.xib */,
 				65E0FCFA1CADC30000F72F85 /* FoodTracker.xcdatamodeld */,
@@ -244,12 +254,14 @@
 			files = (
 				65E0FCF91CADC30000F72F85 /* AppDelegate.m in Sources */,
 				65E0FCF61CADC30000F72F85 /* main.m in Sources */,
-				65E0FD271CB05F9700F72F85 /* MealTableViewController.m in Sources */,
-				65E0FCFF1CADC30000F72F85 /* MealViewController.m in Sources */,
-				65E0FD241CB0581200F72F85 /* MealTableViewCell.m in Sources */,
+				65BCAB5E1CB67017006AC0AB /* Recent.m in Sources */,
+				65E0FD271CB05F9700F72F85 /* ContactTableViewController.m in Sources */,
+				65E0FCFF1CADC30000F72F85 /* ContactViewController.m in Sources */,
+				65E0FD241CB0581200F72F85 /* ContactTableViewCell.m in Sources */,
+				654332451CB667CB001F5B24 /* RecentsTableViewController.m in Sources */,
+				65BCAB5B1CB66DF5006AC0AB /* RecentTableViewCell.m in Sources */,
 				65E0FCFC1CADC30000F72F85 /* FoodTracker.xcdatamodeld in Sources */,
-				65E0FD201CB04D3300F72F85 /* Meal.m in Sources */,
-				65E0FD1E1CAE813000F72F85 /* RatingControl.m in Sources */,
+				65E0FD201CB04D3300F72F85 /* Contact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

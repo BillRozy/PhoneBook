@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "Meal.h"
+#import "Contact.h"
 
 @interface FoodTrackerTests : XCTestCase
 
@@ -22,15 +22,15 @@
 
 -(void)testMealInitialization{
     //Success case
-    Meal* potentialItem = [[Meal alloc] initWithName:@"Newest meal" Image:nil andPhoneNumber:@"123213131" ];
+    Contact* potentialItem = [[Contact alloc] initWithName:@"Newest meal" Image:nil andPhoneNumber:@"123213131" ];
     XCTAssertNotNil(potentialItem);
     
     //Failure case
     
-    Meal* noName = [[Meal alloc] initWithName:@"" Image:nil andPhoneNumber:@"1231231231"];
+    Contact* noName = [[Contact alloc] initWithName:@"" Image:nil andPhoneNumber:@"1231231231"];
     XCTAssertNil(noName, "Empty name is invalid");
     
-    Meal* badRating = [[Meal alloc] initWithName:@"Really bad rating" Image:nil andPhoneNumber:@"213123131"];
+    Contact* badRating = [[Contact alloc] initWithName:@"Really bad rating" Image:nil andPhoneNumber:@"213123131"];
     XCTAssertNil(badRating, "Negative ratings are invalid, be positive");
     
 }

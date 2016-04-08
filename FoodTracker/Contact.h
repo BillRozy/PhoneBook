@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Meal : NSObject<NSCoding>
+@interface Contact : NSObject<NSCoding>
 
 // MARK: properties
 

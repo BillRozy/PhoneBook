@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol ReloadDelegate
 
-@interface MealTableViewController : UITableViewController
+- (void)updateRecentData: (NSArray *)arrayChangedParams;
+
+@end
+
+@interface ContactTableViewController : UITableViewController
 
 // MARK: properties
 
-@property (readwrite) NSMutableArray* meals;
+@property (readwrite) NSMutableArray* contacts;
 @property UITableViewCell* callingCell;
+@property (weak, nonatomic) id<ReloadDelegate>delegate;
 
 // MARK: navigation
 
@@ -26,8 +32,10 @@
 
 // MARK: NSCoding
 
--(void)saveMeals;
--(NSArray*)loadMeals;
+-(void)saveContacts;
+-(NSArray*)loadContacts;
+-(void)saveRecentsFromAlert:(NSArray*)recents;
+-(NSArray*)loadRecents;
 
 
 @end

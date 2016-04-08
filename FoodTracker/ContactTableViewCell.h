@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MealTableViewCell : UITableViewCell
+@interface ContactTableViewCell : UITableViewCell
 
 // MARK: properties
 
