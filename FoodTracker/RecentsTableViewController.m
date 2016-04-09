@@ -36,9 +36,20 @@
     }
     
     NSLog(@"WHAT INSIDE? %@ %@ %@ %@",[self.recents.firstObject name],[self.recents.firstObject photo], [self.recents.firstObject phoneNumber], [self.recents.firstObject date]);
+    NSNotificationCenter * notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self selector:@selector(updaterOfRecentsCells) name:@"broadcastMessage" object:nil];
+    NSLog(@"notification center was added %@", notificationCenter);
 }
 
-
+-(void)updaterOfRecentsCells{
+    NSLog(@"Button pressed %@", self.tableView);
+    self.recents = [NSMutableArray arrayWithArray:[self loadRecents]];
+    [self.tableView beginUpdates];
+     
+     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+     
+     [self.tableView endUpdates];
+}
 
 -(void)loadSampleRecents{
     UIImage* photo1 = [UIImage imageNamed:@"Dish1"];

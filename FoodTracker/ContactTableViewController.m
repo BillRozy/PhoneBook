@@ -216,6 +216,9 @@
         [recents insertObject:newRecent atIndex:0];
         NSLog(@"Recents: %@", recents);
         [self saveRecentsFromAlert:recents];
+        NSNotification *broadCastMessage = [NSNotification notificationWithName:@"broadcastMessage" object:self];
+        NSNotificationCenter * notificationCenter = [NSNotificationCenter defaultCenter];
+        [notificationCenter postNotification:broadCastMessage];
     }];
     [youCallingWindow addAction:cancelAction];
     [youCallingWindow addAction:saveAction];
