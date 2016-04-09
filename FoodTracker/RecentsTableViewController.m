@@ -11,6 +11,8 @@
 #import "RecentTableViewCell.h"
 
 @interface RecentsTableViewController ()
+- (IBAction)callSameContact:(UIButton *)sender;
+- (IBAction)cleanRecentsHistory:(UIButton *)sender;
 
 @end
 
@@ -18,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+  
     
     NSArray* savedRecents = [self loadRecents];
     NSMutableArray* resulter = [NSMutableArray arrayWithArray:savedRecents];
@@ -28,14 +30,7 @@
     self.recents = resulter;
         
     }
-    else
-    {
-      
-       [self loadSampleRecents];
-    
-    }
-    
-    NSLog(@"WHAT INSIDE? %@ %@ %@ %@",[self.recents.firstObject name],[self.recents.firstObject photo], [self.recents.firstObject phoneNumber], [self.recents.firstObject date]);
+
     NSNotificationCenter * notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver:self selector:@selector(updaterOfRecentsCells) name:@"broadcastMessage" object:nil];
     NSLog(@"notification center was added %@", notificationCenter);
@@ -50,23 +45,6 @@
      
      [self.tableView endUpdates];
 }
-
--(void)loadSampleRecents{
-    UIImage* photo1 = [UIImage imageNamed:@"Dish1"];
-    Recent* recent1 = [[Recent alloc] initWithName:@"Andy" Image:photo1 Date:[NSDate date] andPhoneNumber:@"89087517220"];
-    
-    UIImage* photo2 = [UIImage imageNamed:@"Dish2"];
-    Recent* recent2 = [[Recent alloc] initWithName:@"Barbara" Image:photo2 Date:[NSDate date] andPhoneNumber:@"89601825549"];
-    
-
-    
-   self.recents = [[NSMutableArray alloc] initWithArray:@[recent1, recent2]];
-    NSLog(@" %@",self.recents);
-}
-
-
-    
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -163,9 +141,38 @@
     return recents;
 }
 
-// MARK: delegate
 
 
+// MARK: actions
 
+- (IBAction)callSameContact:(UIButton *)sender {
+    RecentTableViewCell* selectedRecentCell = [[sender superview] superview];
+    NSLog(@"%@", selectedRecentCell);
+    NSString* message = [NSString stringWithFormat:@"You are calling %@ \n %@", selectedRecentCell.nameLabel.text,selectedRecentCell.phoneNumberLabel.text];
+    UIAlertController* youCallingWindow = [UIAlertController alertControllerWithTitle:@"Calling" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"was canceled");
+    }];
+    UIAlertAction* saveAction = [UIAlertAction actionWithTitle:@"End Call" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // save data into recents
+        Recent* newRecent = [[Recent alloc] initWithName:selectedRecentCell.nameLabel.text Image:selectedRecentCell.photoImageView.image Date:[NSDate date] andPhoneNumber:selectedRecentCell.phoneNumberLabel.text];
+        [self.recents insertObject:newRecent atIndex:0];
+        [self saveRecents];
+        [self.tableView beginUpdates];
+        
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.tableView endUpdates];}];
+    [youCallingWindow addAction:cancelAction];
+    [youCallingWindow addAction:saveAction];
+    [self presentViewController:youCallingWindow animated:true completion:nil];
+}
+
+- (IBAction)cleanRecentsHistory:(UIButton *)sender {
+    [self.recents removeAllObjects];
+    [self saveRecents];
+    [self.tableView reloadData];
+    NSLog(@"recents were deleted");
+}
 
 @end

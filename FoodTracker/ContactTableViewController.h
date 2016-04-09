@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+BorderRadius.h"
 @protocol ReloadDelegate
 
 - (void)updateRecentData: (NSArray *)arrayChangedParams;

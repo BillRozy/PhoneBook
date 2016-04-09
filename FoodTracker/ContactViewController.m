@@ -8,10 +8,8 @@
 
 #import "ContactViewController.h"
 
+
 @interface ContactViewController ()
-
-
-
 
 
 @end
@@ -19,8 +17,10 @@
 @implementation ContactViewController
 
 - (void)viewDidLoad {
-
+    
     [super viewDidLoad];
+    [self roundMyView:self.photoImageView borderRadius:50.0f borderWidth:3.0f color:[UIColor blackColor]];
+    
     //handle textfield's user input through delegate callback
     self.nameTextField.delegate = self;
     self.phoneNumberTextField.delegate = self;
@@ -108,6 +108,7 @@
     
     
 }
+
 
 
 @end

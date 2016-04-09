@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [self roundMyView:self.photoImageView borderRadius:32.0f borderWidth:2.0f color:[UIColor darkGrayColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

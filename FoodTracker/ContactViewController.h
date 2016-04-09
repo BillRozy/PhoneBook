@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Contact.h"
+#import "UIViewController+BorderRadius.h"
+
+
 
 
 @interface ContactViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
