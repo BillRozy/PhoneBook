@@ -150,7 +150,7 @@
 // MARK: actions
 
 - (IBAction)callSameContact:(UIButton *)sender {
-    RecentTableViewCell* selectedRecentCell = [[sender superview] superview];
+    RecentTableViewCell* selectedRecentCell = (RecentTableViewCell*)[[sender superview] superview];
     NSLog(@"%@", selectedRecentCell);
     NSString* message = [NSString stringWithFormat:@"You are calling %@ \n %@", selectedRecentCell.nameLabel.text,selectedRecentCell.phoneNumberLabel.text];
     UIAlertController* youCallingWindow = [UIAlertController alertControllerWithTitle:@"Calling" message:message preferredStyle:UIAlertControllerStyleAlert];

@@ -204,7 +204,7 @@
 
 
 - (IBAction)callContact:(UIButton*)sender {
-    ContactTableViewCell* selectedContactCell = [[sender superview] superview];
+    ContactTableViewCell* selectedContactCell = (ContactTableViewCell*)[[sender superview] superview];
     NSLog(@"%@", selectedContactCell);
     NSString* message = [NSString stringWithFormat:@"You are calling %@ \n %@", selectedContactCell.nameLabel.text,selectedContactCell.phoneNumberLabel.text];
     UIAlertController* youCallingWindow = [UIAlertController alertControllerWithTitle:@"Calling" message:message preferredStyle:UIAlertControllerStyleAlert];

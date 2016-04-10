@@ -30,7 +30,6 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField;
 -(BOOL)textFieldShouldReturn:(UITextField *)textField;
 -(void)textFieldDidEndEditing:(UITextField *)textField;
--(void)checkValidContactName;
 
 // MARK: navigation
 - (IBAction)cancel:(UIBarButtonItem *)sender;

@@ -25,6 +25,7 @@
     //handle textfield's user input through delegate callback
     self.nameTextField.delegate = self;
     self.phoneNumberTextField.delegate = self;
+    self.saveButton.enabled = false;
     
     if (self.contact != nil){
         self.navigationItem.title = self.contact.name;
@@ -37,7 +38,8 @@
         self.phoneNumberTextField.text = self.contact.phoneNumber;
     }
     
-    [self checkValidContactName];
+
+    [self checkValidContactInfo];
 }
 
 // MARK: UITextFieldDelegate
@@ -45,18 +47,23 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     self.saveButton.enabled = false;
+     [self checkValidContactInfo];
 }
 
--(void)checkValidContactName{
-    NSString* text = self.nameTextField.text;
-    self.saveButton.enabled = !([text isEqual:@""] || [text isEqual:nil]);
+
+-(void)checkValidContactInfo{
+    NSString* name = self.nameTextField.text;
+    NSString* number = self.phoneNumberTextField.text;
+    self.saveButton.enabled = !([name isEqual:@""] || [name isEqual:nil] || [number isEqual:nil] || [number isEqual:@""]);
     
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    [self checkValidContactName];
+    [self checkValidContactInfo];
     self.navigationItem.title = self.nameTextField.text;
 }
+
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -80,8 +87,9 @@
 
 - (IBAction)cancel:(UIBarButtonItem *)sender {
     id presented = self.presentingViewController;
-    id presentedClass = [presented class];
-    if ([presentedClass isEqualToString:@"UINavigationController"]){
+    NSString* presentedClass = [NSString stringWithFormat:@"%@",[presented class]];
+    NSLog(@"%@", presentedClass);
+    if ([presentedClass isEqualToString:@"UITabBarController"]){
         [self dismissViewControllerAnimated:true completion:nil];
     }
     else
