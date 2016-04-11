@@ -22,7 +22,7 @@
 
 -(void)testMealInitialization{
     //Success case
-    Contact* potentialItem = [[Contact alloc] initWithName:@"Newest meal" Image:nil andPhoneNumber:@"123213131" ];
+    Contact* potentialItem = [[Contact alloc] initWithName:@"Newest contact" Image:nil andPhoneNumber:@"123213131" ];
     XCTAssertNotNil(potentialItem);
     
     //Failure case
@@ -30,8 +30,7 @@
     Contact* noName = [[Contact alloc] initWithName:@"" Image:nil andPhoneNumber:@"1231231231"];
     XCTAssertNil(noName, "Empty name is invalid");
     
-    Contact* badRating = [[Contact alloc] initWithName:@"Really bad rating" Image:nil andPhoneNumber:@"213123131"];
-    XCTAssertNil(badRating, "Negative ratings are invalid, be positive");
+
     
 }
 
